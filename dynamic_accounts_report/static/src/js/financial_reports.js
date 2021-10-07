@@ -97,7 +97,7 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
                 if (typeof(amount) != 'number') {
                     amount = parseFloat(amount);
                 }
-                var formatted_value = (parseInt(amount)).toLocaleString(currency[2],{
+                var formatted_value = (parseFloat(amount)).toLocaleString(currency[2],{
                     minimumFractionDigits: 2
                 })
                 return formatted_value
