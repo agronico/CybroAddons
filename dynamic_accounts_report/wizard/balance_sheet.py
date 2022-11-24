@@ -206,9 +206,10 @@ class BalanceSheetView(models.TransientModel):
             rec['credit'] = round(rec['credit'], 2)
             rec['balance'] = rec['debit'] - rec['credit']
             rec['balance'] = round(rec['balance'], 2)
-            if (rec['balance_cmp'] < 0 and rec['balance'] > 0) or (
-                    rec['balance_cmp'] > 0 and rec['balance'] < 0):
-                rec['balance'] = rec['balance'] * -1
+            # RS 20221124 this is just weird, neither Jake or I have any idea why this exists
+            # if (rec['balance_cmp'] < 0 and rec['balance'] > 0) or (
+            #        rec['balance_cmp'] > 0 and rec['balance'] < 0):
+            #    rec['balance'] = rec['balance'] * -1
 
             if position == "before":
                 rec['m_debit'] = symbol + " " + "{:,.2f}".format(rec['debit'])
